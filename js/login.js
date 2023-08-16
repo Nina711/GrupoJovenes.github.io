@@ -16,3 +16,4 @@ async function submit(e){
 var loggedin = localStorage.getItem("email")
 if (loggedin){
     window.location = "index.html"
+}
