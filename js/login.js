@@ -1,10 +1,9 @@
 //Redirige al index en caso de estar logeado
-/*
+
 var loggedin = localStorage.getItem("email")
 if (loggedin){
     window.location = "index.html"
-}
-*/
+
 
 //Invoca la funcion submit desde el formulario
 window.addEventListener("load", function () {
