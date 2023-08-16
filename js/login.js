@@ -13,7 +13,7 @@ async function submit(e){
 }
 
 //Redirige al index en caso de estar logeado
-var loggedin = localStorage.getItem("email");
+var loggedin = localStorage.getItem("email").value;
 if (loggedin){
     window.location = "index.html"
 };
