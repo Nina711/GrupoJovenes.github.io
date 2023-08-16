@@ -15,6 +15,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 // Redirige el index al login en caso de no estar logeado
 var loggedin = localStorage.getItem("email")
-if (loggedin){
+if (!loggedin){
     window.location = "login.html"
 }
