@@ -14,6 +14,6 @@ async function submit(e){
 
 //Redirige al index en caso de estar logeado
 var loggedin = localStorage.getItem("email");
-if (loggedin){
+if (loggedin != " "){
     window.location = "index.html"
 };
