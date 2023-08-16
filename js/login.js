@@ -1,8 +1,3 @@
-//Redirige al index en caso de estar logeado
-var loggedin = localStorage.getItem("email")
-if (loggedin){
-    window.location = "index.html"
-
 //Invoca la funcion submit desde el formulario
 window.addEventListener("load", function () {
     const formSearch = document.getElementById("formSearch");
@@ -16,3 +11,8 @@ async function submit(e){
     localStorage.setItem("password",document.getElementById("password").value);
     window.location.href = "index.html"
 }
+
+//Redirige al index en caso de estar logeado
+var loggedin = localStorage.getItem("email")
+if (loggedin){
+    window.location = "index.html"
