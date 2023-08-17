@@ -10,6 +10,11 @@ document.addEventListener("DOMContentLoaded", function(e){
     getJSONData(P_URL).then(function(resultObj){
         if (resultObj.status === "ok"){
             Category = resultObj.data;
+
+            
+            // Agrega el nombre de la categoría debajo del título.
+            document.getElementById("catname").innerHTML += Category.catName;
+
             showProductsList()
         }
     });
@@ -28,8 +33,6 @@ function showProductsList(){
     let prod = Category.products;
     // Variable para almacenar el contenido y luego agregarlo al body.
     let htmlContentToAppend = "";
-    // Agrega el nombre de la categoría debajo del título.
-    document.getElementById("catname").innerHTML += Category.catName;
     // Agrega la información de los productos al párrafo.
     for(let i = 0; i < prod.length; i++){
 
