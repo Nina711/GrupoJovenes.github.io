@@ -17,4 +17,6 @@ document.addEventListener("DOMContentLoaded", function(){
 var loggedin = localStorage.getItem("email")
 if (!loggedin){
     window.location = "login.html"
+}else{
+    document.getElementById("user").innerHTML = localStorage.getItem("email");
 }
