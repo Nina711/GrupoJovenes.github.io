@@ -39,3 +39,17 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+// Redirige el index al login en caso de no estar logeado
+var loggedin = localStorage.getItem("email")
+if (!loggedin){
+    window.location = "login.html"
+}else{
+    let barra = document.getElementById("barra");
+    let a = `
+            <li class="nav-item">
+                 <a class="nav-link" id="user">${localStorage.getItem("email")}</a>
+             </li>
+            `
+    barra.innerHTML += a;
+}
