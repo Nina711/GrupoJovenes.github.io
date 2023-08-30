@@ -59,7 +59,7 @@ function showProductsList(){
     //Si la categoría no tiene productos, muestra en pantalla... algo?
     else
     {
-        document.getElementById("prod-list-container").innerHTML = `NO HAY`
+        document.getElementById("prod-list-container").innerHTML = `NO HAY MAS NA'`
     }
 }
 
