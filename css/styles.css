@@ -189,3 +189,16 @@ a.custom-card:hover {
   color: orange;
 }
 
+/* Estilo para las estrellas de los comentarios. */
+
+.ratings{
+  margin-left: 5px;
+}
+
+.ratings i{
+  color:#cecece;
+}
+
+.rating-color{
+  color:#fbc634 !important;
+}
