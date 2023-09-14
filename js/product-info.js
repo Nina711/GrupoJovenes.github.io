@@ -78,7 +78,7 @@ function ShowComments(){
             </div>
         `
     let rating = document.getElementById(element.dateTime);
-        for(let i=1;i<=element.score;i++){
+        for(let i=1;i<=5;i++){
             rating.innerHTML += i <= element.score ? 
                 `<i class="fa fa-star rating-color"></i>` : `<i class="fa fa-star ratings-i"></i>`
         }
