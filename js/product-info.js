@@ -5,7 +5,7 @@ const Prod_URL = PRODUCT_INFO_URL + id + EXT_TYPE;
 //Constante con la info de los comentarios.
 const COMMENTS = PRODUCT_INFO_COMMENTS_URL + id + EXT_TYPE;
 //Variable para guardar la info del producto.
-let Product = null; //cambiar en products.js tmb
+let Product = null;
 //Variable para guardar los comentarios.
 let Comments = null;
 
@@ -32,7 +32,6 @@ let container = document.getElementById("prod-container");
 
 //Función encargada de mostrar la información del producto.
 function ShowProductInfo(){
-    console.log(Product); //borrar
     container.innerHTML = `
         <br>
         <h2>${Product.name}</h2>
@@ -62,7 +61,6 @@ let comentarios = document.getElementById("comments");
 
 //Funcion encargada de mostrar y actualizar la lista de comentarios.
 function ShowComments(){
-    console.log(Comments); //borrar
     comentarios.innerHTML = ``;
     Comments.forEach(element => {
         comentarios.innerHTML += `
@@ -80,11 +78,9 @@ function ShowComments(){
             </div>
         `
     let rating = document.getElementById(element.dateTime);
-        for(let i=1;i<=element.score;i++){
-            rating.innerHTML += `<i class="fa fa-star rating-color"></i>`
-        }
-        for(let j=element.score+1;j<=5; j++){
-            rating.innerHTML += `<i class="fa fa-star ratings-i"></i>`
+        for(let i=1;i<=5;i++){
+            rating.innerHTML += i <= element.score ? 
+                `<i class="fa fa-star rating-color"></i>` : `<i class="fa fa-star ratings-i"></i>`
         }
     });
 }
