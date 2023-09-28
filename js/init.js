@@ -40,16 +40,39 @@ let getJSONData = function(url){
     });
 }
 
+
 // Redirige el index al login en caso de no estar logeado
-var loggedin = localStorage.getItem("email")
-if (!loggedin){
-    window.location = "login.html"
-}else{
+var loggedin = localStorage.getItem("email");
+
+if (!loggedin) {
+    window.location = "login.html";
+} else {
     let barra = document.getElementById("barra");
-    let a = `
-            <li class="nav-item">
-                 <a class="nav-link" id="user">${localStorage.getItem("email")}</a>
-             </li>
-            `
-    barra.innerHTML += a;
+    let userNavItem = document.createElement("li");
+    userNavItem.className = "nav-item dropdown"; // Agregamos la clase 'dropdown' al elemento <li>
+    userNavItem.innerHTML = `
+        <a class="nav-link dropdown-toggle text-center" id="userDropdown" role="button" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="img/nano.jpg" class="profile-image" alt="Imagen de perfil"> <!-- Imagen de perfil -->
+            ${localStorage.getItem("email")} <!-- El nombre de usuario se mostrará aquí -->
+        </a>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown"> <!-- Agregamos la clase 'dropdown-menu-end' para centrar a la derecha -->
+            <a class="dropdown-item" href="micarrito.html">Mi carrito</a> <!-- Redirige a la página de carrito -->
+            <a class="dropdown-item" href="miperfil.html">Mi perfil</a> <!-- Redirige a la página de perfil -->
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#" id="cerrarSesion">Cerrar sesión</a> <!-- Agregamos un manejador de eventos al enlace de cierre de sesión -->
+        </div>
+    `;
+
+    barra.innerHTML += userNavItem.outerHTML; // Agregamos el elemento <li> con el menú desplegable al final de la barra
+
+    // Manejador de eventos para el enlace "Cerrar sesión"
+    document.getElementById("cerrarSesion").addEventListener("click", function() {
+        // Elimina el usuario del Local Storage
+        localStorage.removeItem("email");
+        // Redirige al usuario a la página de inicio de sesión
+        window.location = "login.html";
+    });
 }
+
+
